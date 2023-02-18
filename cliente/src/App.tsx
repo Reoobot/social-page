@@ -4,6 +4,7 @@ import './App.css';
 import Layout from './components/Layout';
 import DetailPage from './pages/DetailPage';
 import FormPage from './pages/FormPage';
+import FormuLogin from './pages/FormuLogin';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Nofound from './pages/Nofound';
@@ -28,6 +29,7 @@ function App() {
                   <Route path='/FormPage' element={<FormPage />} />
                   <Route path='/Login' element={<Login />} />
                   <Route path='/Profile' element={<Profile />} />
+                  <Route path='/FormuLogin'element={<FormuLogin/>} />
           </Route>
             <Route path='*' element={<Nofound />} />
 

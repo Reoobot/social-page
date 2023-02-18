@@ -4,7 +4,8 @@ import { idText } from 'typescript'
 import { getUsersRequest } from '../api/recet.api'
 import Layout from '../components/Layout'
 
-type Props = {
+export type Props = {
+  id:any;
   gmail:string;
   password:string;
   createdAt:string;
@@ -15,7 +16,7 @@ type Props = {
 
 function Home() {
 
-const [users, setUsers] = useState ([])
+const [users, setUsers] = useState<Props[]> ([])
 
 useEffect(()=>{
   
@@ -36,8 +37,11 @@ useEffect(()=>{
         </h1>
         {
           users.map(users => (
-            <div>
-              <h1>{users}</h1>
+            <div key={users.id}>
+              <h3>{users.gmail}</h3>
+              <p>{users.password}</p>
+              {/* <p>{users.authStrategy}</p>
+              <p>{users.createdAt}</p> */}
          
             </div>
           ))
