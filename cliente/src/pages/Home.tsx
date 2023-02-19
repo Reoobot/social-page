@@ -16,17 +16,17 @@ export type Props = {
 
 function Home() {
 
-const [users, setUsers] = useState<Props[]> ([])
+const [user, setUser] = useState ([])
 
 useEffect(()=>{
   
- async function loadUsers (){
+ async function loadUser (){
   const response = await getUsersRequest()
-  setUsers(response.data)
+  console.log(response.data)
 
 
   }
-  loadUsers()
+  loadUser()
 
 }, [])
 
@@ -35,17 +35,7 @@ useEffect(()=>{
       <h1>
         HOme
         </h1>
-        {
-          users.map(users => (
-            <div key={users.id}>
-              <h3>{users.gmail}</h3>
-              <p>{users.password}</p>
-              {/* <p>{users.authStrategy}</p>
-              <p>{users.createdAt}</p> */}
-         
-            </div>
-          ))
-        }
+        
 
 
 

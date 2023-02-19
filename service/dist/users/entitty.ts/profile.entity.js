@@ -9,38 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.Profile = void 0;
 const typeorm_1 = require("typeorm");
-const profile_entity_1 = require("./profile.entity");
-let User = class User {
+let Profile = class Profile {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], User.prototype, "id", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ unique: true }),
-    __metadata("design:type", String)
-], User.prototype, "gmail", void 0);
+], Profile.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], User.prototype, "password", void 0);
+], Profile.prototype, "firstname", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' }),
-    __metadata("design:type", Date)
-], User.prototype, "createdAt", void 0);
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], Profile.prototype, "lastname", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", String)
-], User.prototype, "authStrategy", void 0);
-__decorate([
-    (0, typeorm_1.OneToOne)(() => profile_entity_1.Profile),
-    (0, typeorm_1.JoinColumn)(),
-    __metadata("design:type", profile_entity_1.Profile)
-], User.prototype, "profile", void 0);
-User = __decorate([
-    (0, typeorm_1.Entity)('users')
-], User);
-exports.User = User;
-//# sourceMappingURL=user.entity.js.map
+    __metadata("design:type", Number)
+], Profile.prototype, "age", void 0);
+Profile = __decorate([
+    (0, typeorm_1.Entity)('users_profile')
+], Profile);
+exports.Profile = Profile;
+//# sourceMappingURL=profile.entity.js.map

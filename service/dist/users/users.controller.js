@@ -14,7 +14,9 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
+const create_profile_dto_1 = require("./dto/create.profile.dto");
 const create_users_dto_1 = require("./dto/create.users.dto");
+const update_user_1 = require("./dto/update.user");
 const users_services_1 = require("./users.services");
 let UserController = class UserController {
     constructor(usersService) {
@@ -33,7 +35,13 @@ let UserController = class UserController {
         return this.usersService.deleteUser(id);
     }
     updateUser(id, user) {
-        return this.usersService;
+        return this.usersService.updateUser(id, user);
+    }
+    createProfile(id, profile) {
+        return this.usersService.crateProfile(id, profile);
+    }
+    getProfile() {
+        return this.usersService.getProfile();
     }
 };
 __decorate([
@@ -64,13 +72,27 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "deleteUser", null);
 __decorate([
-    (0, common_1.Put)(':1d'),
+    (0, common_1.Put)(':id/profile'),
     __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, create_users_dto_1.CreateUserDto]),
+    __metadata("design:paramtypes", [Number, update_user_1.UpdateUserDto]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "updateUser", null);
+__decorate([
+    (0, common_1.Post)(':id/profile'),
+    __param(0, (0, common_1.Param)('id', common_1.ParseIntPipe)),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, create_profile_dto_1.CreateProfileDto]),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "createProfile", null);
+__decorate([
+    (0, common_1.Get)('profile'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "getProfile", null);
 UserController = __decorate([
     (0, common_1.Controller)('users'),
     __metadata("design:paramtypes", [users_services_1.UsersService])

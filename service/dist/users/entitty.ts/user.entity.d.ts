@@ -1,3 +1,4 @@
+import { Profile } from "./profile.entity";
 export declare class User {
     id: number;
     gmail: string;
@@ -5,4 +6,5 @@ export declare class User {
     createdAt: Date;
     authStrategy: string;
     affected: number;
+    profile: Profile;
 }
